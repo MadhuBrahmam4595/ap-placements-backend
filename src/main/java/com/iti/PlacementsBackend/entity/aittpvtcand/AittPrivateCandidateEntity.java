@@ -34,35 +34,5 @@ public class AittPrivateCandidateEntity {
     private String pwdCategory;
     private Boolean ewsFlag;
 
-    private String permanentAddress;
-    private String correspondenceAddress;
 
-    private String mobile;
-    private String aadhar;
-    private String email;
-
-    private String tradeApplied;
-
-    private String officeAddress;
-    private String employeeIdNumber;
-    private String employerMobile;
-    private String employerEmail;
-    private String industryRegistrationDetails;
-
-    private Boolean atsRegistered;
-    private Boolean msmeRegistered;
-    private Boolean factoriesAct;
-    private Boolean shopsAct;
-
-    private LocalDate apprenticeActDate;
-    private Boolean experienceCert;
-    private Boolean characterCert;
-
-    private String gpfEpfNo;
-    private LocalDate gpfEpfDate;
-
-    private String esiNo;
-    private LocalDate esiDate;
-
-    private Boolean declaration;
-}
+ }

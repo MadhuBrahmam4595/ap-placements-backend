@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.iti.PlacementsBackend.entity.hrm.SubCasteMaster;
+import com.iti.PlacementsBackend.repo.hrm.CasteMasterRepository;
+import com.iti.PlacementsBackend.repo.hrm.SubCasteMasterRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,9 +88,7 @@ public class MasterDataController {
 	
 	@Autowired
 	private EmployeeTransferService employeeTransferService;
-	
 
-	
 	@Autowired
 	private MyUtil myUtil;
 	@Autowired
@@ -654,6 +655,22 @@ public class MasterDataController {
         file.transferTo(new File(filePath));
         return filePath;
     }
+
+	@Autowired
+	private CasteMasterRepository casteMasterRepository;
+
+	@Autowired
+	private SubCasteMasterRepository subCasteMasterRepository;
+
+	@GetMapping("getAllByOrderByCasteCategoryAsc")
+	public ResponseEntity<List<CasteMaster>> getAllByOrderByCasteCategoryAsc(){
+		return ResponseEntity.ok(casteMasterRepository.findAllByOrderByCasteCategoryAsc());
+	}
+
+	@GetMapping("getByCasteMasterCasteIdOrderBySubCasteAsc")
+	public ResponseEntity<List<SubCasteMaster>> getByCasteMasterCasteIdOrderBySubCasteAsc(@RequestParam Long casteId){
+		return ResponseEntity.ok(subCasteMasterRepository.findByCasteMaster_CasteIdOrderBySubCasteAsc(casteId));
+	}
 
 	
 

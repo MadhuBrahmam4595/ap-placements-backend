@@ -10,5 +10,5 @@ import com.iti.PlacementsBackend.entity.hrm.SubCasteMaster;
 @Repository
 public interface SubCasteMasterRepository extends JpaRepository<SubCasteMaster, Long> {
 	 List<SubCasteMaster> findByCasteMaster_CasteId(Long casteId);
-
+	List<SubCasteMaster> findByCasteMaster_CasteIdOrderBySubCasteAsc(Long casteId);
 }

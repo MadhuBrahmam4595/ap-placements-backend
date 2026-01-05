@@ -13,4 +13,5 @@ public interface CasteMasterService {
     Optional<CasteMaster> getCasteByCategory(String category);
     CasteMaster updateCaste(Long id, CasteMaster casteDetails);
     void deleteCaste(Long id);
+
 }
