@@ -11,12 +11,9 @@ import jakarta.persistence.*;
 @Table(
    name = "ititrade_master"
 )
-@Access(AccessType.FIELD)
 public class ItiTradeMasterEntity {
    @Id
-   @Column(name = "trade_short")
    private String tradeShort;
-   @Column(name = "trade_name")
    private String tradeName;
 
    private Integer durationyrs;

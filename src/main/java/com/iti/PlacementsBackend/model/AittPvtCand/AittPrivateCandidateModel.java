@@ -1,14 +1,11 @@
 package com.iti.PlacementsBackend.model.AittPvtCand;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class AittPrivateCandidateModel {
@@ -41,5 +38,38 @@ public class AittPrivateCandidateModel {
     private String aadhar;
     private String email;
     private String tradeApplied;
+
+    // ======== PRESENT WORKING DETAILS
+    private String officeAddress;
+    private String employeeIdNumber;
+    private String employerMobile;
+    private String employerEmail;
+    private String industryRegistrationDetails;
+
+    // ===== ESTABLISHMENT & STATUTORY DETAILS =====
+    private String atsRegistered;
+    private String msmeRegistered;
+    private String factoriesAct;
+    private String shopsAct;
+
+    private LocalDate apprenticeActDate;
+
+    private String experienceCert;
+    private String characterCert;
+
+    private String gpfEpfNo;
+    private LocalDate gpfEpfDate;
+
+    private String esiNo;
+    private LocalDate esiDate;
+
+    // ======== EDUCATIONAL & TECHNICAL QUALIFICATIONS
+    private List<CandidateQualificationModel> qualifications;
+
+    // =========== WORK EXPERIENCE DETAILS
+    private List<WorkExperienceModel> workExperiences;
+
+
+
 
 }

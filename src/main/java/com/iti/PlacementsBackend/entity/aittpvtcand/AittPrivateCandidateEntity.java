@@ -1,6 +1,8 @@
 package com.iti.PlacementsBackend.entity.aittpvtcand;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.iti.PlacementsBackend.entity.hrm.CasteMaster;
 import com.iti.PlacementsBackend.entity.hrm.SubCasteMaster;
@@ -81,16 +83,50 @@ public class AittPrivateCandidateEntity {
 
 
     // ===== ADDRESS & CONTACT DETAILS =====
-    private String permanentAddress;
-    private String correspondenceAddress;
-    private String mobile;
-    private String aadhar;
-    private String email;
+    @OneToOne(
+            mappedBy = "candidate",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            orphanRemoval = true
+    )
+    private CandidateAddressContactEntity addressContact;
 
-    // ===== TRADE MAPPING =====
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "trade_short", nullable = false)
-    private ItiTradeMasterEntity trade;
+    // ======== PRESENT WORKING DETAILS
+    @OneToOne(
+            mappedBy = "candidate",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            orphanRemoval = true
+    )
+    private CandidateWorkDetailsEntity workDetails;
+
+    // ===== ESTABLISHMENT & STATUTORY DETAILS =====
+    @OneToOne(
+            mappedBy = "candidate",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            orphanRemoval = true
+    )
+    private CandidateEstablishmentStatutoryEntity establishmentDetails;
+
+    // ======= EDUCATIONAL & TECHNICAL QUALIFICATIONS
+    @OneToMany(
+            mappedBy = "candidate",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<CandidateQualificationEntity> qualifications = new ArrayList<>();
+
+    // ============ WORK EXPERIENCE DETAILS
+    @OneToMany(
+            mappedBy = "candidate",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<CandidateWorkExperienceEntity> workExperiences = new ArrayList<>();
+
+
+
 
 
 }
