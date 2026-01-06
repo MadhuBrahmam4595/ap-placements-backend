@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import com.iti.PlacementsBackend.entity.hrm.CasteMaster;
 import com.iti.PlacementsBackend.entity.hrm.SubCasteMaster;
+import com.iti.PlacementsBackend.entity.master.ItiTradeMasterEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -79,4 +80,17 @@ public class AittPrivateCandidateEntity {
     private String photoContentType;
 
 
- }
+    // ===== ADDRESS & CONTACT DETAILS =====
+    private String permanentAddress;
+    private String correspondenceAddress;
+    private String mobile;
+    private String aadhar;
+    private String email;
+
+    // ===== TRADE MAPPING =====
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "trade_short", nullable = false)
+    private ItiTradeMasterEntity trade;
+
+
+}

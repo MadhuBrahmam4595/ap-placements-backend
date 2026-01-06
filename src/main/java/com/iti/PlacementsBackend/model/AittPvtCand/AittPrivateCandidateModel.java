@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class AittPrivateCandidateModel {
 
+    // ========= PERSONAL DETAILS ====
     private String category;
     private String applicantName;
     private String fatherName;
@@ -32,4 +33,13 @@ public class AittPrivateCandidateModel {
 
     private byte[] photo;
     private String photoContentType;
+
+    // ========= ADDRESS & CONTACT DETAILS =========
+    private String permanentAddress;
+    private String correspondenceAddress;
+    private String mobile;
+    private String aadhar;
+    private String email;
+    private String tradeApplied;
+
 }

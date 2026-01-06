@@ -5,20 +5,20 @@ import java.util.Map;
 
 import com.iti.PlacementsBackend.util.HstoreDataType;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(
    name = "ititrade_master"
 )
+@Access(AccessType.FIELD)
 public class ItiTradeMasterEntity {
    @Id
+   @Column(name = "trade_short")
    private String tradeShort;
+   @Column(name = "trade_name")
    private String tradeName;
+
    private Integer durationyrs;
    private String engNonengg;
    private String minQual;

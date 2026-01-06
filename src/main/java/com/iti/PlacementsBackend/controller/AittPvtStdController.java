@@ -1,12 +1,9 @@
 package com.iti.PlacementsBackend.controller;
 
-import com.iti.PlacementsBackend.entity.hrm.CasteMaster;
-import com.iti.PlacementsBackend.entity.hrm.SubCasteMaster;
 import com.iti.PlacementsBackend.model.AittPvtCand.AittPrivateCandidateModel;
 import com.iti.PlacementsBackend.model.AittPvtCand.AittPrivateCandidateReportModel;
 import com.iti.PlacementsBackend.service.AittPvtCand.AittPrivateCandidateService;
 import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,5 +51,6 @@ public class AittPvtStdController {
 
         return ResponseEntity.ok(report);
     }
+
 
 }

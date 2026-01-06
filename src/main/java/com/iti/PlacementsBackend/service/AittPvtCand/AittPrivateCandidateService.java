@@ -26,6 +26,7 @@ public class AittPrivateCandidateService {
 
         AittPrivateCandidateEntity applicant = new AittPrivateCandidateEntity();
 
+        // ========= PERSONAL DETAILS =========
         applicant.setCategory(dto.getCategory());
         applicant.setApplicantName(dto.getApplicantName());
         applicant.setFatherName(dto.getFatherName());
@@ -51,6 +52,13 @@ public class AittPrivateCandidateService {
                 subCasteRepo.findById(dto.getSubCasteId())
                         .orElseThrow(() -> new RuntimeException("Invalid sub caste"))
         );
+
+        // ===== ADDRESS & CONTACT DETAILS =====
+        applicant.setPermanentAddress(dto.getPermanentAddress());
+        applicant.setCorrespondenceAddress(dto.getCorrespondenceAddress());
+        applicant.setMobile(dto.getMobile());
+        applicant.setAadhar(dto.getAadhar());
+        applicant.setEmail(dto.getEmail());
 
         return applicantRepository.save(applicant).getId();
     }

@@ -19,5 +19,6 @@ public interface ItiTradeMasterRepo extends JpaRepository<ItiTradeMasterEntity, 
 			+ " inner join ititrade_master b on a.trade_short = b.trade_short\r\n"
 			+ " where iti_code=:iticode",nativeQuery = true)
 	public List<UniversalProjection> getTradesInIti(String iticode);
+
 }
 
