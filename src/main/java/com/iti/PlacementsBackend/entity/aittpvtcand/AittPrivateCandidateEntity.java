@@ -25,6 +25,9 @@ public class AittPrivateCandidateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /* ---------- UNIQUE ID GENERATION ---------- */
+    private Long applicationId;
+
     /* ---------- BASIC DETAILS ---------- */
 
     @Column(name = "category", length = 50)

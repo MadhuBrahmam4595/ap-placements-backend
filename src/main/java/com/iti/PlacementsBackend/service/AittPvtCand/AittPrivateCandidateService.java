@@ -30,6 +30,10 @@ public class AittPrivateCandidateService {
 
         AittPrivateCandidateEntity applicant = new AittPrivateCandidateEntity();
 
+        Long nextId = applicantRepository.getNextApplicationId();
+        System.out.println("next Id for applicant=>"+nextId);
+        applicant.setApplicationId(nextId);
+
         // ========= PERSONAL DETAILS =========
         applicant.setCategory(dto.getCategory());
         applicant.setApplicantName(dto.getApplicantName());

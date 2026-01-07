@@ -24,7 +24,7 @@ public class AittPvtStdController {
     private final AittPrivateCandidateService applicantService;
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Long> saveApplicant(
+    public ResponseEntity<?> saveApplicant(
             @RequestPart("data") AittPrivateCandidateModel dto,
             @RequestPart(value = "photo", required = false) MultipartFile photo
     ) throws IOException {
@@ -32,13 +32,17 @@ public class AittPvtStdController {
         logger.info("Fetched request to save data: AittPrivateCandidateModel:{}", dto);
         logger.info("Fetched request to save data: photo:{}", photo.getName());
 
-        if (photo != null && !photo.isEmpty()) {
-            dto.setPhoto(photo.getBytes());
-            dto.setPhotoContentType(photo.getContentType());
-        }
+        try {
+            if (photo != null && !photo.isEmpty()) {
+                dto.setPhoto(photo.getBytes());
+                dto.setPhotoContentType(photo.getContentType());
+            }
 
-        Long id = applicantService.save(dto);
-        return ResponseEntity.ok(id);
+            Long id = applicantService.save(dto);
+            return ResponseEntity.ok(id);
+        } catch (IOException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @GetMapping("/report/{id}")
